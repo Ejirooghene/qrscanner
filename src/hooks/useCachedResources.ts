@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import SplashScreen from 'expo-splash-screen';
+import * as SplashScreen from 'expo-splash-screen';
 // import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import { FontAwesome, MaterialCommunityIcons, MaterialIcons, Entypo, AntDesign, Ionicons } from '@expo/vector-icons';
@@ -12,7 +12,7 @@ const useCachedResources = (): boolean => {
 
     const loadResourcesAsync = async() => {
         try {
-            // SplashScreen.preventAutoHideAsync();
+            SplashScreen.preventAutoHideAsync();
 
             // load fonts 
             await Font.loadAsync({
@@ -36,12 +36,12 @@ const useCachedResources = (): boolean => {
             // })
 
             // await Promise.all(cacheImages);
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            setIsReady(true);
+            SplashScreen.hideAsync()
+
 
         } catch(error) {
             console.log('Error caching resources:', error)
-        } finally {
-            setIsReady(true);
         }
     }
 
