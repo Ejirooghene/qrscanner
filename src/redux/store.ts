@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import scan from "./reducers/scan";
+import { scanSlice, themeSlice, favoriteSlice, historySlice }  from './reducers'
 
 
 const store = configureStore({
     reducer: {
-        scan
+       scan: scanSlice,
+       theme: themeSlice,
+       favorites: favoriteSlice,
+       history: historySlice
     },
 })
 
-export default store;
+export default store; 
