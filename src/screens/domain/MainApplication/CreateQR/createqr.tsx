@@ -13,9 +13,13 @@ const CreateQR: FC = () => {
   return (
     <View style={[styles.container, { backgroundColor: bg.secondary }]}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <Text style={[styles.topText, { color: text.secondary}]}>Create QR</Text>
+        <Text style={[styles.topText, { color: text.secondary }]}>
+          Create QR
+        </Text>
         <CreateQrData />
-        <Text style={[styles.topText, { color: text.secondary}]}>Other types</Text>
+        <Text style={[styles.topText, { color: text.secondary }]}>
+          Other types
+        </Text>
         <OtherTypesData />
       </ScrollView>
     </View>

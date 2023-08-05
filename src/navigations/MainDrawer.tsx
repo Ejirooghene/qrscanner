@@ -42,7 +42,7 @@ const MainDrawer: React.FC = () => {
                     drawerActiveTintColor: highLight,
                     drawerStyle: {
                         backgroundColor: bg.primary,
-                    }
+                    },
                 }}
             >
                 <Screen 
