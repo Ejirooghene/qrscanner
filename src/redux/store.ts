@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { scanSlice, themeSlice, favoriteSlice, historySlice }  from './reducers'
+import { scanSlice, themeSlice, favoriteSlice, historySlice, settingSlice }  from './reducers'
 
 
 const store = configureStore({
@@ -7,7 +7,8 @@ const store = configureStore({
        scan: scanSlice,
        theme: themeSlice,
        favorites: favoriteSlice,
-       history: historySlice
+       history: historySlice,
+       settings: settingSlice
     },
 })
 

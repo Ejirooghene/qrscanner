@@ -31,7 +31,7 @@ const Scan = () => {
 
     return (
         <View style={[styles.container, { backgroundColor: bg.primary }]}>
-            <Header />
+            <Header /> 
             <View style={{marginTop: 200}}>
                 <Button title='Light'  onPress={() => dispatch(toggleTheme('Light'))} /> 
                 <Button title='Dark'  onPress={() => dispatch(toggleTheme('Dark'))} /> 
