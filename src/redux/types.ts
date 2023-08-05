@@ -16,6 +16,7 @@ export interface ThemeState {
         };
         highLight: string;
     }
+    colorScheme: string;
 }
 
 export interface FavoriteState {
@@ -26,9 +27,21 @@ export interface HistoryState {
     // History state properties
 }
 
+export interface SettingState {
+    // Settings state properties
+    beep: boolean;
+    vibration: boolean;
+    copy: boolean;
+    url: boolean;
+    batch: boolean;
+    autoFocus: boolean;
+    touchFocus: boolean;
+}
+
 export interface RootState {
     scan: ScanState;
     theme: ThemeState;
     favorites: FavoriteState;
     history: HistoryState;
+    setting: SettingState;
 }  

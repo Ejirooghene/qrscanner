@@ -32,13 +32,15 @@ const DrawerItem: React.FC<Props> = ({ title, name, size, focused, text }) => {
 }
 
 const MainDrawer: React.FC = () => {
-    const { theme: { bg, text, highLight}} = useSelector((store: RootState) => store.theme )
+    const { theme: { bg, text, highLight}, colorScheme } = useSelector((store: RootState) => store.theme )
 
     return (
         <>
-            <StatusBar style='light' backgroundColor='#000' />
+            <StatusBar style='light' backgroundColor={colorScheme} />
             <Navigator
                 screenOptions={{
+                    headerTintColor: 'white',
+                    headerTitleAlign: 'center',
                     drawerActiveTintColor: highLight,
                     drawerStyle: {
                         backgroundColor: bg.primary,
@@ -49,31 +51,29 @@ const MainDrawer: React.FC = () => {
                 name='scan' 
                 component={Scan} 
                 options={{
-                    headerStyle: {
-                        backgroundColor: 'white',
-                        elevation: 0, 
-                    }, 
+                    headerTintColor: 'black',
                     headerTitle: '',
+                    headerTransparent: true,
                     drawerLabel: () => null,
-                    drawerIcon : ({ focused }) => <DrawerItem title='Scan' name='scan-outline' size={20} focused={focused} text={text.primary} />
+                    drawerIcon : ({ focused }) => <DrawerItem title='Scan' name='scan-outline' size={20} focused={focused} text={colorScheme} />
                 }}
                 />
                 <Screen name='favorites' component={Favorites}
                 options={{
                     drawerLabel: () => null,
-                    drawerIcon : ({ focused }) => <DrawerItem title='Favorites' name='star-outline' size={20} focused={focused} text={text.primary} />
+                    drawerIcon : ({ focused }) => <DrawerItem title='Favorites' name='star-outline' size={20} focused={focused} text={colorScheme} />
                 }}
                 />
                 <Screen name='history' component={History} 
                 options={{
                     drawerLabel: () => null,
-                    drawerIcon : ({ focused }) => <DrawerItem title='History' name='time-outline' size={20} focused={focused} text={text.primary} />
+                    drawerIcon : ({ focused }) => <DrawerItem title='History' name='time-outline' size={20} focused={focused} text={colorScheme} />
                 }}
                 />
                 <Screen name='myqr' component={MyQR} 
                 options={{
                     drawerLabel: () => null,
-                    drawerIcon : ({ focused }) => <DrawerItem title='My QR' name='person-circle-outline' size={20} focused={focused} text={text.primary} />
+                    drawerIcon : ({ focused }) => <DrawerItem title='My QR' name='person-circle-outline' size={20} focused={focused} text={colorScheme} />
                 }}
                 />
                 <Screen name='createqr' component={CreateQrStack}
@@ -82,13 +82,16 @@ const MainDrawer: React.FC = () => {
                         <View><Text>Create</Text></View>
                     ),
                     drawerLabel: () => null,
-                    drawerIcon : ({ focused }) => <DrawerItem title='Create QR' name='pencil' size={20} focused={focused} text={text.primary} />
+                    drawerIcon : ({ focused }) => <DrawerItem title='Create QR' name='pencil' size={20} focused={focused} text={colorScheme} />
                 }}
                 />
                 <Screen name='settings' component={Settings} 
                     options={{
+                        headerStyle: {
+                            backgroundColor: colorScheme
+                        },
                         drawerLabel: () => null,
-                        drawerIcon : ({ focused }) => <DrawerItem title='Settings' name='settings-outline' size={20} focused={focused} text={text.primary} />
+                        drawerIcon : ({ focused }) => <DrawerItem title='Settings' name='settings-outline' size={20} focused={focused} text={colorScheme} />
                     }}
                 /> 
             </Navigator>
@@ -107,7 +110,7 @@ const styles = ScaledSheet.create({
     },
     text: {
         marginLeft: ms(15),
-        fontFamily: 'Medium',
-        fontSize: ms(10)
+        // fontFamily: 'Medium',
+        fontSize: ms(12)
     }
 })

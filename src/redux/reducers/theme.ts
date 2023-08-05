@@ -10,7 +10,7 @@ const lightTheme = {
         primary: '#000000',
         secondary: '#727272'
     },
-    highLight: '#313131'
+    highLight: '#313131',
 }
 
 const darkTheme = {
@@ -26,7 +26,8 @@ const darkTheme = {
 }
 
 const initialState: ThemeState = {
-    theme: lightTheme
+    theme: lightTheme,
+    colorScheme: '#7986CC'
 }
 
 
@@ -40,10 +41,13 @@ const themeSlice = createSlice({
             } else if(action.payload === 'Dark'){
                 state.theme = darkTheme;
             }
+        },
+        changeColorScheme: (state, action: PayloadAction<string>) => {
+            state.colorScheme = action.payload;
         }
     }
 })
 
-export const { toggleTheme } = themeSlice.actions;
+export const { toggleTheme, changeColorScheme } = themeSlice.actions;
 
 export default themeSlice.reducer;

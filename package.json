@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "expo": "~49.0.5",
     "expo-asset": "~8.10.1",
+    "expo-checkbox": "~2.4.0",
     "expo-font": "~11.4.0",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
