@@ -1,5 +1,5 @@
 import React, { Children, FC } from "react";
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, Dimensions, Pressable } from "react-native";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../redux/types";
 import { MaterialCommunityIcons, FontAwesome, Ionicons, Feather, EvilIcons } from "@expo/vector-icons";
@@ -71,16 +71,16 @@ const CreateQrData: FC = () => {
   ];
 
   return (
-    <View style={[styles.viewContainer, { backgroundColor: bg.primary }]}>
+    <Pressable style={[styles.viewContainer, { backgroundColor: bg.secondary }]}>
       {Children.toArray(
           data.map(item => (
-            <View style={[styles.viewLayer, { backgroundColor: bg.secondary }]}>
+            <View style={[styles.viewLayer, { backgroundColor: bg.primary }]}>
               <View>{item.icon}</View>
               <Text style={[styles.viewText, { color: text.primary}]}>{item.title}</Text>
             </View>
           ))
         )}
-    </View>
+    </Pressable>
   );
 };
 
@@ -94,7 +94,6 @@ const styles = ScaledSheet.create({
     borderRadius: ms(10),
     overflow: 'hidden',
     marginVertical: ms(10),
-    // paddingBottom: ms(-50),
   },
   viewLayer: {
     flexDirection: 'row',

@@ -4,10 +4,12 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import { ScaledSheet, ms } from 'react-native-size-matters';
-import { Scan, Favorites, History, MyQR, CreateQR, Settings } from "../screens";
+import { Scan, Favorites, History, MyQR, Settings } from "../screens";
 import { RootState } from '../redux/types';
 import { useSelector } from 'react-redux';
 
+// stacks
+import { CreateQrStack } from './';
 
 const Drawer = createDrawerNavigator();
 const { Navigator, Screen } = Drawer;
@@ -74,8 +76,11 @@ const MainDrawer: React.FC = () => {
                     drawerIcon : ({ focused }) => <DrawerItem title='My QR' name='person-circle-outline' size={20} focused={focused} text={text.primary} />
                 }}
                 />
-                <Screen name='createqr' component={CreateQR}
+                <Screen name='createqr' component={CreateQrStack}
                  options={{
+                    headerTitle: () => (
+                        <View><Text>Create</Text></View>
+                    ),
                     drawerLabel: () => null,
                     drawerIcon : ({ focused }) => <DrawerItem title='Create QR' name='pencil' size={20} focused={focused} text={text.primary} />
                 }}

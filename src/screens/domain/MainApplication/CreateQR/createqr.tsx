@@ -11,7 +11,7 @@ const CreateQR: FC = () => {
   } = useSelector((store: RootState) => store.theme);
 
   return (
-    <View style={[styles.container, { backgroundColor: bg.primary }]}>
+    <View style={[styles.container, { backgroundColor: bg.secondary }]}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <Text style={[styles.topText, { color: text.secondary}]}>Create QR</Text>
         <CreateQrData />
